@@ -1,0 +1,544 @@
+
+@import 'variables';
+@import 'normalize';
+@import 'functions';
+
+@media (min-width: 300px) {
+    /* FADE-IN FROM TOP */
+    .slide-top {
+        opacity: 0;
+        transform: translate(0, -20px);
+        transition: all 1s ease-out;
+     }
+    
+    /* FADE-IN FROM BOTTOM */
+    .slide-bottom {
+        opacity: 0;
+        transform: translate(0, 50px);
+        transition: all 1s ease-out;
+     }
+    
+    /* FADE-IN FROM LEFT */
+    .slide-left {
+        opacity: 0;
+        transform: translate(-40px, 0);
+        transition: all 1s ease-out;
+     }
+    
+    /* FADE-IN FROM RIGHT */
+    .slide-right {
+        opacity: 0;
+        transform: translate(20px, 0);
+        transition: all 1s ease-out;
+     }
+    body {
+        background-color: $backgroundColour;
+        color: $mainColour;
+
+        h2{
+            display: inline-block;
+            // background: linear-gradient(180deg, #5C258D 0%, #4389A2 72%, #afebea 100%);
+            // background: -webkit-linear-gradient(-90deg, #5C258D 0%, #4389A2 72%, #afebea 100%);
+            // background-clip: text;
+            // -webkit-background-clip: text;
+            // -webkit-text-fill-color: transparent;
+        }
+        // h2{
+            // background: $emphasizeColour;
+            text-align: center;
+        // }
+        h5 {
+            text-align: center;
+        }
+
+        hr {
+            margin: 5% 0;
+        }
+        .chgColour {
+            display: inline-block;
+            background: linear-gradient(180deg, #5C258D 0%, #4389A2 72%, #afebea 100%);
+            background: -webkit-linear-gradient(-90deg, #5C258D 0%, #4389A2 72%, #afebea 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .lang-logo{
+            font-size: 100px;
+        }
+    }
+
+/////// NAV PART ///////
+    .navbar {
+        display: flex;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: linear-gradient(
+            180deg, rgba(38, 61, 94, 1) 
+            67%, rgba(38, 61, 94, 0.9612219887955182) 
+            72%, rgba(38, 61, 94, 0.8547794117647058) 
+            79%, rgba(38, 61, 94, 0.738532913165266) 
+            86%, rgba(38, 61, 94, 0) 100% );
+            z-index: 1;
+            .pageLogo {
+                color: #e5eac4 !important;
+            }
+        a {
+            text-decoration: none;
+            color: $mainColour;
+            font-size: $fontSizeSmall;
+            align-self: center;
+        }
+        .navlinks {
+            // border: 1px solid yellow;
+            padding: 1%;
+            width: 40%;
+            display: flex;
+            justify-content: space-evenly;
+            margin-left: auto;
+            a {
+                color: #e5eac4 !important;
+                // padding: 0 4%;
+                margin: 0 3%;
+                // border: 1px solid lime;
+                // color: $mainColour;
+                position: relative;
+
+            }
+
+            a::after {
+                position: absolute;
+                left: 0;
+                content: '';
+                width: 100%;
+                height: 2px;
+                background: $hoverColour;
+                bottom: 30px; /*アンダーラインが現れ始める位置（aタグの下辺からの高さ）*/
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.3s;
+            }
+                
+            a:hover::after {
+                visibility: visible;
+                bottom: -3px; /*アニメーションが止まる位置*/
+                opacity: 1;
+            }
+            
+            a:link, a:visited, a:hover, a:active {
+                color: $mainColour;
+            }
+        }
+    }
+
+/////// HERO IMAGE PART ///////
+    .heroImage-desc {
+        height: 30%;
+
+        .heroImage-profile {
+            // border: 2px solid lime;
+            margin: auto;
+            text-align: left;
+            h2 {
+                font-size: 25px;
+            }
+            h1 {
+                font-size: 40px;
+                // line-height: 84.2%;
+            }
+            h3 {
+                font-size: 15px;
+                font-weight: 500;
+                color: #575757;
+                padding: 15px 0;
+                line-height: 24.6px;
+                letter-spacing: 0.6px;
+            }
+
+        }
+
+        section {
+            max-width: 300px;
+            margin: 0 auto;
+          }
+
+          a.github_btn {
+            position: relative;
+            display: block;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            text-align: center;
+          }
+          a.github_btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(155deg, #87b2b0 20%, #87b2b0 40%, #87b2b0 51%, #87b2b0 80%);
+            border-radius: 7em;
+            box-sizing: border-box;
+          }
+          a.github_btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            background-color: $mainColour;
+            border-radius: 7em;
+            box-sizing: border-box;
+            transform: translate(0, -10px);
+          }
+          a.github_btn .btn_span {
+            position: relative;
+            display: block;
+            padding: 1rem 5rem;
+            transform: translate(0, -10px);
+            overflow: hidden;
+            z-index: +1;
+          }
+          a.github_btn .btn_span::before {
+            content: "";
+            position: absolute;
+            top: -180px;
+            left: 0;
+            width: 30px;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            transform: rotate(45deg);
+          }
+          a.github_btn::after, a.github_btn .btn_span {
+            transition-property: transform;
+            transition-duration: 0.3s;
+          }
+          a.github_btn:hover::after, a.github_btn:hover .btn_span {
+            transform: translate(0, 0);
+          }
+          a.btn_08:hover .btn_span::before {
+            animation: shine 1s ease-in-out 1;
+          }
+          .btn_span{
+              color: $backgroundColour;
+          }
+
+          @keyframes shine {
+            0% {
+              transform: scale(1) rotate(45deg);
+              opacity: 0;
+            }
+            10% {
+              transform: scale(1) rotate(45deg);
+              opacity: 0.5;
+            }
+            20% {
+              transform: scale(4) rotate(45deg);
+              opacity: 1;
+            }
+            80% {
+              transform: scale(50) rotate(45deg);
+              opacity: 0;
+            }
+          }
+    }
+
+    .heroImage-pic {
+        display: none;
+        img {
+            background-image: url("./img/IMG_4782.jpeg");  /* 表示する画像 */
+            width:  100px;
+            height: 100px;
+            border-radius: 50%;
+            background-position: left top;
+            border: 5px solid $hoverColour; /* 枠線を付加 */
+        }
+    }
+
+
+/////// ABOUT ///////
+    // .about {
+
+    // }
+/////// SKILL PART-1 ///////
+    .skills-1 {
+        position: relative;
+
+        .progress-bar {
+            color: $backgroundColour;
+            background: $progressBarColour;
+        }
+        .skill-card-body{
+            // border: 2px solid rgb(183, 42, 183);
+            margin-bottom: 20%;
+           
+        }
+        .htmlImg {
+            width: 30%;
+            border-radius: $picShapeRound;
+            position: absolute;
+            top: -3%;
+            left: 18%;
+        }
+        .cssImg {
+            width: 25%;
+            border-radius: $picShapeRound;
+            position: absolute;
+            top: -6%;
+            right: 18%;
+        }
+        .phpImg {
+            width: 25%;
+            border-radius: $picShapeRound;
+            position: absolute;
+            top: 63%;
+            // left: 38%;
+        }
+        img {
+           display: none;
+        }
+
+        
+    }
+
+/////// SKILL PART-2 ///////
+    .skills-2 {
+        position: relative;
+        .progress-bar {
+            color: $backgroundColour;
+            background-color: $progressBarColour;
+        }
+        .skill-card-body{
+            // border: 2px solid rgb(183, 42, 183);
+            margin-bottom: 20%;
+        }
+        // .jsImg {
+        //     width: 25%;
+        //     border-radius: $picShapeRound;
+        //     position: absolute;
+        //     top: -15%;
+        //     left: 18%;
+        // }
+        // .bootstrapImg {
+        //     width: 25%;
+        //     border-radius: $picShapeRound;
+        //     position: absolute;
+        //     top: -15%;
+        //     right: 18%;
+        // }
+        // .sassImg {
+        //     width: 25%;
+        //     border-radius: $picShapeRound;
+        //     position: absolute;
+        //     top: 63%;
+        //     left: 38%;
+        // }
+        // img {
+        //     display: none;
+        // }
+    }
+/////// SKILL PART-3 ///////
+.skills-3 {
+        position: relative;
+        .progress-bar {
+            color: $backgroundColour;
+            background-color: $progressBarColour;
+        }
+        .skill-card-body{
+            // border: 2px solid rgb(183, 42, 183);
+            margin-bottom: 20%;
+        }
+    }
+
+/////// SKILL PART-4 ///////
+.skills-4 {
+        position: relative;
+        .progress-bar {
+            color: $backgroundColour;
+            background-color: $progressBarColour;
+        }
+        .skill-card-body{
+            // border: 2px solid rgb(183, 42, 183);
+            margin-bottom: 20%;
+        }
+    }
+
+
+/////// EDUCATION ///////
+    .education {
+        text-align: center;
+        position: relative;
+        // display: flex;
+        // flex-direction: column;
+
+        .edu-1, .edu-2{
+            text-align: center;
+            width: 100%;
+        }
+
+        .edu-1 {
+            margin: 5% 0 10% 0;
+        }
+    }
+
+/////// PROJECTS ///////
+    div[class^="project"] > .card{
+        margin: auto;
+    }
+
+    .project-2, .project-4{
+        margin: 10% 0;
+    }
+
+    .card-body {
+        background-color: $mainColour;
+        color: white;
+    }    
+
+/////// CONTACT ///////
+    .contact{
+        display: flex;
+        justify-content: center;
+        // .tel-mail {
+        //     border: 1px solid red;
+        // }
+        .sns {
+            // border: 1px solid blue;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            a{
+                font-size: 30px;
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    /////// NAV PART ///////
+    // .navbar{
+    //     .navlinks{
+
+    //     }
+    // }
+/////// HERO IMAGE PART ///////
+    .heroImage-desc{
+        margin-top: 3%;
+        // border: 3px solid black;
+        button{
+            margin-top: 5%;
+        }
+    }
+    .heroImage-profile {
+        .name {
+            width: 90%;
+            margin-left: auto;
+            // border: 2px solid red;
+            h1{
+                font-size: 80px;
+            }
+            h2{
+                font-size: 45px;
+            }
+        }
+        .intro {
+            width: 90%;
+            margin-left: auto;
+            // border: 2px solid green;
+            h3{
+                font-size: 25px;
+                line-height: 1.5em;
+            }
+        }
+    }
+    .heroImage-pic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            background-image: url("./img/profile.jpeg");  /* 表示する画像 */
+            width:  280px;
+            height: 320px;
+            border-radius: 50%;
+            background-position: left top;
+            border: 5px solid $hoverColour; /* 枠線を付加 */
+        }
+    }
+/////// SKILL PART-1 ///////
+    .skills-1{
+        // border: 2px solid black;
+        margin-bottom: 5%;
+        .skill-card-body:hover{
+            transform: scale(1.1, 1.1);
+            transition: .6s;
+        }
+    }
+
+/////// SKILL PART-2 ///////
+.skills-2{
+    margin-bottom: 3%;
+    .skill-card-body:hover{
+        // border-bottom: 2px solid green;
+        transform: scale(1.1, 1.1);
+        transition: .6s;
+    }
+}
+
+/////// SKILL PART-3 ///////
+.skills-3{
+    margin-bottom: 3%;
+    .skill-card-body:hover{
+        // border-bottom: 2px solid green;
+        transform: scale(1.1, 1.1);
+        transition: .6s;
+    }
+}
+/////// SKILL PART-4 ///////
+.skills-4{
+    margin-bottom: 3%;
+    .skill-card-body:hover{
+        // border-bottom: 2px solid green;
+        transform: scale(1.1, 1.1);
+        transition: .6s;
+    }
+}
+/////// EDUCATION ///////
+    .edu{
+        display: flex;
+        // border: 1px solid green;
+
+        .edu-1, .edu-2{
+            text-align: center;
+            align-content: center;
+            width: 100%;
+            margin: 3% 0 0 0;
+        }
+
+    }
+
+/////// PROJECTS ///////
+    div[class^="projects_"]{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .project-1, .project-2{
+        margin: 10% 0;
+    }
+
+    .project-3, .project-4{
+        margin: 0;
+    }
+}
+
+
+@media (min-width: 1000px) {
+
+}

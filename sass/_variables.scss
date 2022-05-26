@@ -1,0 +1,17 @@
+$mainColour : rgb(38, 61, 94);
+$textColour: #e5eac4;
+$emphasizeColour: linear-gradient(
+                90deg,
+                #5C258D 0%,
+                #4389A2 20%
+                );
+$progressBarColour: rgb(38, 61, 94);;
+$hoverColour : $emphasizeColour;
+$borderColour : rgb(183, 42, 183);
+$backgroundColour:  #f5f8e3;
+
+$fontSizeSmall :15px; 
+$fontSizeMedium :$fontSizeSmall + 5px; 
+$fontSizeLarge :$fontSizeSmall + 20px; 
+
+$picShapeRound :50%;
