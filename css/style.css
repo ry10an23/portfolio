@@ -290,6 +290,11 @@ html {
     border: 5px solid linear-gradient(90deg, #5C258D 0%, #4389A2 20%);
     /* 枠線を付加 */
   }
+  .aboutme > p {
+    font-size: 18px;
+    text-align: left;
+    margin-top: 5%;
+  }
   .skills-1 {
     position: relative;
   }
